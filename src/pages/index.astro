@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Polaroid from '../components/Polaroid.astro';
+import settingPhoto from '../assets/photos/setting.jpg';
+import toysPhoto from '../assets/photos/toys1.jpg';
+import booksPhoto from '../assets/photos/bookstoys1.jpg';
 
 const heroBadges = [
   { label: 'Qualified Teacher', cls: 'pill' },
@@ -47,19 +51,24 @@ const practicalInfo = [
       </div>
 
       <div class="relative">
-        <!-- Polaroid-framed hero image -->
-        <div class="polaroid mx-auto max-w-md md:rotate-1">
-          <div class="polaroid-img aspect-[4/5] bg-lilac-100 flex items-center justify-center text-lilac-700/50 font-display text-lg text-center px-6">
-            Photo of the purpose-built outbuilding
-          </div>
-          <p class="mt-4 text-center font-display text-lilac-900">Our setting</p>
-        </div>
-        <!-- Small accent polaroid behind, peeking -->
-        <div class="hidden md:block absolute -bottom-6 -left-6 polaroid w-44 -rotate-6">
-          <div class="polaroid-img aspect-square bg-sage-100 flex items-center justify-center text-sage-600/60 text-xs text-center px-3">
-            Playroom detail
-          </div>
-        </div>
+        <Polaroid
+          src={settingPhoto}
+          alt="The purpose-built garden outbuilding under a tree, with bi-fold doors and an egg chair"
+          caption="Our setting"
+          rotate="md:rotate-1"
+          aspect="aspect-[4/5]"
+          class="mx-auto max-w-md"
+          priority={true}
+          width={900}
+        />
+        <Polaroid
+          src={toysPhoto}
+          alt="Wicker baskets of wooden toys, magnetic tiles and building blocks on a soft rug"
+          rotate="-rotate-6"
+          aspect="aspect-square"
+          class="hidden md:block absolute -bottom-6 -left-6 w-44"
+          width={400}
+        />
       </div>
     </div>
   </section>
@@ -122,15 +131,29 @@ const practicalInfo = [
   <section class="py-16 md:py-20">
     <div class="container-wide grid lg:grid-cols-2 gap-12 items-center">
       <div class="grid grid-cols-2 gap-4 max-w-md">
-        <div class="polaroid -rotate-2 mt-8">
-          <div class="polaroid-img aspect-square bg-sage-100"></div>
-        </div>
-        <div class="polaroid rotate-2">
-          <div class="polaroid-img aspect-[4/5] bg-rose-100"></div>
-        </div>
-        <div class="polaroid rotate-1 col-span-2">
-          <div class="polaroid-img aspect-[5/3] bg-lilac-100"></div>
-        </div>
+        <Polaroid
+          src={toysPhoto}
+          alt="Baskets of building blocks and toys arranged on a rug"
+          rotate="-rotate-2"
+          aspect="aspect-square"
+          class="mt-8"
+          width={500}
+        />
+        <Polaroid
+          src={booksPhoto}
+          alt="A wide selection of children's picture books spread on the floor"
+          rotate="rotate-2"
+          aspect="aspect-[4/5]"
+          width={500}
+        />
+        <Polaroid
+          src={settingPhoto}
+          alt="The garden outbuilding, viewed from across the lawn"
+          rotate="rotate-1"
+          aspect="aspect-[5/3]"
+          class="col-span-2"
+          width={900}
+        />
       </div>
 
       <div>

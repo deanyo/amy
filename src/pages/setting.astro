@@ -1,14 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const galleryPlaceholders = [
-  { ratio: 'aspect-[4/5]', tone: 'bg-lilac-100',  rotate: '-rotate-2', label: 'Outbuilding exterior' },
-  { ratio: 'aspect-square', tone: 'bg-sage-100',  rotate: 'rotate-1',  label: 'Reading corner' },
-  { ratio: 'aspect-[4/5]', tone: 'bg-rose-100',   rotate: 'rotate-2',  label: 'Building blocks' },
-  { ratio: 'aspect-[5/4]', tone: 'bg-sun-100',    rotate: '-rotate-1', label: 'Sensory baskets' },
-  { ratio: 'aspect-square', tone: 'bg-sky-100',   rotate: 'rotate-2',  label: 'Garden play' },
-  { ratio: 'aspect-[4/5]', tone: 'bg-peach-100', rotate: '-rotate-1', label: 'Quiet corner' },
-];
+import Polaroid from '../components/Polaroid.astro';
+import settingPhoto from '../assets/photos/setting.jpg';
+import toysPhoto from '../assets/photos/toys1.jpg';
+import booksPhoto from '../assets/photos/bookstoys1.jpg';
 
 const features = [
   {
@@ -52,12 +47,16 @@ const features = [
 
   <!-- Hero photo -->
   <section class="container-wide pb-16">
-    <div class="polaroid mx-auto max-w-3xl rotate-1">
-      <div class="polaroid-img aspect-[16/10] bg-lilac-100 flex items-center justify-center text-lilac-700/50 font-display text-lg">
-        Photo of the outbuilding
-      </div>
-      <p class="mt-4 text-center font-display text-lilac-900">The garden room</p>
-    </div>
+    <Polaroid
+      src={settingPhoto}
+      alt="The purpose-built garden outbuilding under a tree, with bi-fold doors looking onto a calm interior"
+      caption="The garden room"
+      rotate="rotate-1"
+      aspect="aspect-[16/10]"
+      class="mx-auto max-w-3xl"
+      priority={true}
+      width={1400}
+    />
   </section>
 
   <!-- Features -->
@@ -81,24 +80,43 @@ const features = [
         <p class="eyebrow mb-3">Gallery</p>
         <h2>Inside the setting.</h2>
         <p class="mt-4 text-ink-700/80">
-          A glimpse of the resources, corners, and everyday moments —
-          we'll be adding more as we get closer to opening.
+          A first look at the resources and corners of our garden room.
+          We'll be adding more photos as we get closer to opening.
         </p>
       </div>
 
       <ul class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6">
-        {galleryPlaceholders.map((g) => (
-          <li class:list={['polaroid', g.rotate]}>
-            <div class:list={['polaroid-img', g.ratio, g.tone, 'flex items-center justify-center text-ink-700/40 text-xs text-center px-3']}>
-              {g.label}
-            </div>
-          </li>
-        ))}
+        <li>
+          <Polaroid
+            src={toysPhoto}
+            alt="Baskets of magnetic tiles, building blocks and wooden toys on a textured rug"
+            rotate="-rotate-2"
+            aspect="aspect-[4/5]"
+            width={600}
+          />
+        </li>
+        <li>
+          <Polaroid
+            src={booksPhoto}
+            alt="Children's picture books — Julia Donaldson, Peter Rabbit, Peppa Pig — spread out on the floor"
+            rotate="rotate-1"
+            aspect="aspect-square"
+            width={600}
+          />
+        </li>
+        <li>
+          <Polaroid
+            src={settingPhoto}
+            alt="Exterior of the garden outbuilding"
+            rotate="rotate-2"
+            aspect="aspect-[4/5]"
+            width={600}
+          />
+        </li>
       </ul>
 
       <p class="mt-10 text-sm text-ink-700/60 text-center">
-        Photos coming soon — we'll be replacing these placeholders with
-        real shots from the setting.
+        More photos of the setting and resources coming soon.
       </p>
     </div>
   </section>

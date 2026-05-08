@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const credentials = [
+// Verified qualifications — confirmed from Amy's own social posts.
+const verified = [
   {
     title: 'Qualified Teacher Status (QTS)',
     body: 'Trained and experienced primary school teacher, with classroom experience across early years and KS1.',
@@ -12,30 +13,29 @@ const credentials = [
     body: 'Several years of focused Early Years practice — the foundation for everything we do at Blackfen Little Learners.',
     cls: 'pill pill-rose',
   },
+];
+
+// In-progress / required-by-Ofsted-before-opening — honest about the timeline.
+const inProgress = [
   {
     title: 'Ofsted registration',
-    body: 'Registration with Ofsted on the Early Years Register is in progress. URN will be displayed here once issued.',
-    cls: 'pill pill-sage',
+    body: 'Currently in the pre-registration stage with Ofsted. Our URN will be displayed here as soon as it is issued.',
   },
   {
     title: 'Paediatric First Aid',
-    body: 'Full 12-hour paediatric first aid certification, refreshed in line with EYFS requirements.',
-    cls: 'pill pill-sun',
+    body: 'Completing the full 12-hour paediatric first aid certification, in line with EYFS requirements.',
   },
   {
     title: 'Enhanced DBS',
-    body: 'Enhanced DBS check on the update service, alongside checks for any adults living in the home.',
-    cls: 'pill pill-sky',
+    body: 'Enhanced DBS check via the update service for the lead childminder, and for any adults living in the home, as required for Ofsted registration.',
   },
   {
     title: 'Public liability insurance',
-    body: 'Fully insured through a recognised childminding insurance provider.',
-    cls: 'pill pill-peach',
+    body: 'Childminding insurance through a recognised provider is being put in place ahead of opening.',
   },
   {
     title: 'Safeguarding & EYFS training',
-    body: 'Up-to-date safeguarding, food hygiene, and Early Years Foundation Stage training.',
-    cls: 'pill',
+    body: 'Refreshing safeguarding, food hygiene, and Early Years Foundation Stage training as part of the Ofsted registration process.',
   },
 ];
 ---
@@ -45,16 +45,18 @@ const credentials = [
     <div class="container-wide">
       <div class="max-w-2xl">
         <p class="eyebrow mb-3">Qualifications & checks</p>
-        <h1 class="text-balance">Trained, registered, and insured.</h1>
+        <h1 class="text-balance">Trained, and getting fully registered.</h1>
         <p class="mt-6 text-ink-700/85">
-          Choosing childcare is built on trust. Here's a clear summary of
-          the qualifications and checks behind Blackfen Little Learners —
-          and we're always happy to show certificates in person.
+          Choosing childcare is built on trust, so here's an honest summary
+          of where things stand. Some qualifications are already in place,
+          and others form part of the Ofsted registration process before
+          we open.
         </p>
       </div>
 
-      <ul class="mt-12 grid md:grid-cols-2 gap-6">
-        {credentials.map((c) => (
+      <h2 class="mt-14 text-2xl">Already in place</h2>
+      <ul class="mt-6 grid md:grid-cols-2 gap-6">
+        {verified.map((c) => (
           <li class="card">
             <span class:list={[c.cls, 'mb-4']}>{c.title}</span>
             <p class="text-ink-700/85">{c.body}</p>
@@ -62,13 +64,27 @@ const credentials = [
         ))}
       </ul>
 
+      <h2 class="mt-14 text-2xl">In progress for opening</h2>
+      <p class="mt-2 text-ink-700/70 text-sm max-w-2xl">
+        Each of the following is required by Ofsted before we can open, and
+        we're working through them as part of registration.
+      </p>
+      <ul class="mt-6 grid md:grid-cols-2 gap-6">
+        {inProgress.map((c) => (
+          <li class="card-tinted">
+            <span class="pill pill-sage mb-4">{c.title}</span>
+            <p class="text-ink-700/85">{c.body}</p>
+          </li>
+        ))}
+      </ul>
+
       <div class="mt-16 card-tinted">
-        <p class="eyebrow mb-3">Ofsted registration in progress</p>
+        <p class="eyebrow mb-3">Once registered</p>
         <p>
-          We're currently in the pre-registration stage with Ofsted. Opening
-          is planned for September, subject to registration being confirmed.
-          Once issued, the registration number will appear here along with
-          a link to the published Ofsted page.
+          When Ofsted registration is confirmed, this page will be updated
+          with our URN, dates of relevant certificates, and a link to our
+          published Ofsted page. We're always happy to show certificates in
+          person at an introductory visit.
         </p>
       </div>
     </div>
