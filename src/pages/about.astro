@@ -1,17 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Polaroid from '../components/Polaroid.astro';
+import amyPortrait from '../assets/photos/amy.jpg';
 ---
 
 <Layout title="About Amy · Blackfen Little Learners">
   <section class="py-16 md:py-20">
     <div class="container-wide grid md:grid-cols-5 gap-12 items-start">
       <div class="md:col-span-2">
-        <div class="polaroid md:sticky md:top-28 max-w-sm mx-auto rotate-1">
-          <div class="polaroid-img aspect-[4/5] bg-lilac-100 flex items-center justify-center text-lilac-700/50 font-display text-base text-center px-6">
-            Portrait of Amy
-          </div>
-          <p class="mt-4 text-center font-display text-lilac-900">Amy</p>
-        </div>
+        <Polaroid
+          src={amyPortrait}
+          alt="Amy King, founder of Blackfen Little Learners"
+          aspect="aspect-[4/5]"
+          rotate="rotate-1"
+          caption="Amy"
+          class="md:sticky md:top-28 max-w-sm mx-auto"
+          priority
+        />
       </div>
 
       <div class="md:col-span-3">
