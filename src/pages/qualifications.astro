@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const credentials = [
+  {
+    title: 'Qualified Teacher Status (QTS)',
+    body: 'Trained and experienced primary school teacher, with classroom experience across early years and KS1.',
+    cls: 'pill',
+  },
+  {
+    title: 'Extensive Early Years experience',
+    body: 'Several years of focused Early Years practice — the foundation for everything we do at Blackfen Little Learners.',
+    cls: 'pill pill-rose',
+  },
+  {
+    title: 'Ofsted registration',
+    body: 'Registration with Ofsted on the Early Years Register is in progress. URN will be displayed here once issued.',
+    cls: 'pill pill-sage',
+  },
+  {
+    title: 'Paediatric First Aid',
+    body: 'Full 12-hour paediatric first aid certification, refreshed in line with EYFS requirements.',
+    cls: 'pill pill-sun',
+  },
+  {
+    title: 'Enhanced DBS',
+    body: 'Enhanced DBS check on the update service, alongside checks for any adults living in the home.',
+    cls: 'pill pill-sky',
+  },
+  {
+    title: 'Public liability insurance',
+    body: 'Fully insured through a recognised childminding insurance provider.',
+    cls: 'pill pill-peach',
+  },
+  {
+    title: 'Safeguarding & EYFS training',
+    body: 'Up-to-date safeguarding, food hygiene, and Early Years Foundation Stage training.',
+    cls: 'pill',
+  },
+];
+---
+
+<Layout title="Qualifications · Blackfen Little Learners">
+  <section class="py-16 md:py-20">
+    <div class="container-wide">
+      <div class="max-w-2xl">
+        <p class="eyebrow mb-3">Qualifications & checks</p>
+        <h1 class="text-balance">Trained, registered, and insured.</h1>
+        <p class="mt-6 text-ink-700/85">
+          Choosing childcare is built on trust. Here's a clear summary of
+          the qualifications and checks behind Blackfen Little Learners —
+          and we're always happy to show certificates in person.
+        </p>
+      </div>
+
+      <ul class="mt-12 grid md:grid-cols-2 gap-6">
+        {credentials.map((c) => (
+          <li class="card">
+            <span class:list={[c.cls, 'mb-4']}>{c.title}</span>
+            <p class="text-ink-700/85">{c.body}</p>
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-16 card-tinted">
+        <p class="eyebrow mb-3">Ofsted registration in progress</p>
+        <p>
+          We're currently in the pre-registration stage with Ofsted. Opening
+          is planned for September, subject to registration being confirmed.
+          Once issued, the registration number will appear here along with
+          a link to the published Ofsted page.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

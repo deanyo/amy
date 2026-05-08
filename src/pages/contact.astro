@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const showError = Astro.url.searchParams.get('error') === '1';
+---
+
+<Layout title="Register Interest · Blackfen Little Learners">
+  <section class="py-16 md:py-20 relative overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div class="blob bg-lilac-200" style="width: 380px; height: 380px; top: -120px; left: -100px;"></div>
+      <div class="blob bg-rose-200" style="width: 300px; height: 300px; bottom: -80px; right: -80px;"></div>
+    </div>
+
+    <div class="container-wide grid md:grid-cols-2 gap-12 items-start">
+      <div>
+        <p class="eyebrow mb-3">Get in touch</p>
+        <h1 class="text-balance">Let's have a chat.</h1>
+        <p class="mt-6 text-ink-700/85">
+          Whether you'd like to register your interest ahead of opening,
+          or have a few questions, we'd love to hear from you. We aim to
+          reply within 24 hours.
+        </p>
+
+        <dl class="mt-10 space-y-6">
+          <div>
+            <dt class="eyebrow mb-1">Phone</dt>
+            <dd>
+              <a href="tel:+447933177062" class="text-lilac-900 font-display text-xl no-underline hover:underline">
+                07933 177 062
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="eyebrow mb-1">Email</dt>
+            <dd>
+              <a href="mailto:mail@dnyo.co.uk" class="text-lilac-900 no-underline hover:underline">
+                mail@dnyo.co.uk
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="eyebrow mb-2">Social</dt>
+            <dd class="flex flex-wrap gap-2">
+              <a href="https://www.facebook.com/people/Blackfen-Little-Learners/" target="_blank" rel="noopener" class="pill pill-rose no-underline">@Blackfen Little Learners</a>
+              <a href="https://www.instagram.com/blackfenlittlelearners/" target="_blank" rel="noopener" class="pill no-underline">@blackfenlittlelearners</a>
+            </dd>
+          </div>
+          <div>
+            <dt class="eyebrow mb-1">Hours</dt>
+            <dd class="text-ink-700/85">Monday – Friday, 8:00am – 5:30pm · term time only</dd>
+          </div>
+        </dl>
+      </div>
+
+      <form
+        class="card space-y-5"
+        method="POST"
+        action="/api/contact"
+        name="enquiry"
+      >
+        <h2 class="text-2xl">Register your interest</h2>
+
+        {showError && (
+          <div class="rounded-xl border border-rose-200 bg-rose-100 px-4 py-3 text-sm text-ink-700">
+            Sorry — something went wrong sending that. Please check the
+            form and try again, or email us directly.
+          </div>
+        )}
+
+        {/* Honeypot — hidden from real users, filled by bots */}
+        <div class="hidden" aria-hidden="true">
+          <label for="website">Website (leave blank)</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div>
+          <label for="name" class="block text-sm font-medium text-lilac-900 mb-2">Your name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            class="w-full rounded-xl border border-lilac-100 bg-cream-50 px-4 py-3 text-ink-900 focus:outline-none focus:border-lilac-500"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-lilac-900 mb-2">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            class="w-full rounded-xl border border-lilac-100 bg-cream-50 px-4 py-3 text-ink-900 focus:outline-none focus:border-lilac-500"
+          />
+        </div>
+
+        <div>
+          <label for="child-age" class="block text-sm font-medium text-lilac-900 mb-2">
+            Child's age <span class="text-ink-700/50 font-normal">(optional)</span>
+          </label>
+          <input
+            id="child-age"
+            name="child_age"
+            type="text"
+            placeholder="e.g. 18 months"
+            class="w-full rounded-xl border border-lilac-100 bg-cream-50 px-4 py-3 text-ink-900 focus:outline-none focus:border-lilac-500"
+          />
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-lilac-900 mb-2">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            class="w-full rounded-xl border border-lilac-100 bg-cream-50 px-4 py-3 text-ink-900 focus:outline-none focus:border-lilac-500"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary w-full">Send enquiry</button>
+
+        <p class="text-xs text-ink-700/60">
+          By submitting, you agree to Blackfen Little Learners contacting you
+          about your enquiry. See our <a href="/privacy/" class="underline">privacy notice</a>.
+        </p>
+      </form>
+    </div>
+  </section>
+</Layout>

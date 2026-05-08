@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const galleryPlaceholders = [
+  { ratio: 'aspect-[4/5]', tone: 'bg-lilac-100',  rotate: '-rotate-2', label: 'Outbuilding exterior' },
+  { ratio: 'aspect-square', tone: 'bg-sage-100',  rotate: 'rotate-1',  label: 'Reading corner' },
+  { ratio: 'aspect-[4/5]', tone: 'bg-rose-100',   rotate: 'rotate-2',  label: 'Building blocks' },
+  { ratio: 'aspect-[5/4]', tone: 'bg-sun-100',    rotate: '-rotate-1', label: 'Sensory baskets' },
+  { ratio: 'aspect-square', tone: 'bg-sky-100',   rotate: 'rotate-2',  label: 'Garden play' },
+  { ratio: 'aspect-[4/5]', tone: 'bg-peach-100', rotate: '-rotate-1', label: 'Quiet corner' },
+];
+
+const features = [
+  {
+    title: 'Purpose-built outbuilding',
+    body: 'A bright, fully insulated garden room designed specifically for childminding — separate from the family home but moments from the back door.',
+    cls: 'pill',
+  },
+  {
+    title: 'Carefully curated resources',
+    body: 'Books, magnetic blocks, sensory baskets, role-play, and small-world toys, organised so children can choose freely and tidy independently.',
+    cls: 'pill pill-rose',
+  },
+  {
+    title: 'Outdoor play every day',
+    body: 'Direct access to the garden, plus regular trips to local parks and woodland for fresh air, walking, and weather-led exploration.',
+    cls: 'pill pill-sage',
+  },
+  {
+    title: 'Calm, low-stimulation design',
+    body: 'Neutral surfaces and natural materials so the toys and the children — not the décor — are what stand out.',
+    cls: 'pill pill-sun',
+  },
+];
+---
+
+<Layout title="Our Setting · Blackfen Little Learners">
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div class="blob bg-lilac-200" style="width: 360px; height: 360px; top: -100px; right: -80px;"></div>
+    </div>
+    <div class="container-wide pt-14 md:pt-20 pb-10">
+      <p class="eyebrow mb-3">Our setting</p>
+      <h1 class="max-w-3xl text-balance">A calm, purpose-built space just for our little learners.</h1>
+      <p class="mt-6 text-ink-700/85 max-w-2xl">
+        Our childminding takes place in a dedicated, purpose-built outbuilding
+        in the family garden — designed from the ground up for safe,
+        play-led early years care.
+      </p>
+    </div>
+  </section>
+
+  <!-- Hero photo -->
+  <section class="container-wide pb-16">
+    <div class="polaroid mx-auto max-w-3xl rotate-1">
+      <div class="polaroid-img aspect-[16/10] bg-lilac-100 flex items-center justify-center text-lilac-700/50 font-display text-lg">
+        Photo of the outbuilding
+      </div>
+      <p class="mt-4 text-center font-display text-lilac-900">The garden room</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-12 md:py-16 bg-lilac-50/60">
+    <div class="container-wide">
+      <ul class="grid md:grid-cols-2 gap-6">
+        {features.map((f) => (
+          <li class="card">
+            <span class:list={[f.cls, 'mb-4']}>{f.title}</span>
+            <p class="text-ink-700/85">{f.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="py-16 md:py-20">
+    <div class="container-wide">
+      <div class="max-w-2xl">
+        <p class="eyebrow mb-3">Gallery</p>
+        <h2>Inside the setting.</h2>
+        <p class="mt-4 text-ink-700/80">
+          A glimpse of the resources, corners, and everyday moments —
+          we'll be adding more as we get closer to opening.
+        </p>
+      </div>
+
+      <ul class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6">
+        {galleryPlaceholders.map((g) => (
+          <li class:list={['polaroid', g.rotate]}>
+            <div class:list={['polaroid-img', g.ratio, g.tone, 'flex items-center justify-center text-ink-700/40 text-xs text-center px-3']}>
+              {g.label}
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <p class="mt-10 text-sm text-ink-700/60 text-center">
+        Photos coming soon — we'll be replacing these placeholders with
+        real shots from the setting.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16">
+    <div class="container-prose text-center">
+      <h2>Want to see it for yourself?</h2>
+      <p class="mt-4 text-ink-700/80">
+        Once we're registered, we'd love to invite you over for a no-obligation
+        visit. In the meantime, please register your interest.
+      </p>
+      <a href="/contact/" class="btn-primary mt-7">Register interest</a>
+    </div>
+  </section>
+</Layout>

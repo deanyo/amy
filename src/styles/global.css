@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — lilac-led, warm, premium home childcare */
+  --color-cream-50: #fdf8ec;
+  --color-cream-100: #faf0d8;
+  --color-cream-200: #f1e3bf;
+
+  --color-lilac-50: #f6f1fb;
+  --color-lilac-100: #ebe0f5;
+  --color-lilac-200: #d6c5ec;
+  --color-lilac-300: #c2a8df;
+  --color-lilac-500: #a787cf;
+  --color-lilac-700: #7d5cab;
+  --color-lilac-900: #4a3470;
+
+  --color-rose-100: #fce4ec;
+  --color-rose-200: #f7c4d4;
+  --color-rose-400: #ec9bb6;
+
+  --color-sage-100: #e6efd9;
+  --color-sage-300: #b8cf9c;
+  --color-sage-600: #6a8a52;
+
+  --color-sky-100: #e0eef8;
+  --color-sky-300: #a8cae5;
+
+  --color-sun-100: #fbeec3;
+  --color-sun-300: #f1d684;
+
+  --color-peach-100: #fbe1d0;
+  --color-peach-300: #f5b594;
+
+  --color-ink-700: #3d3650;
+  --color-ink-900: #211c33;
+
+  /* Typography */
+  --font-display: "Fredoka", ui-rounded, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Radii */
+  --radius-soft: 1rem;
+  --radius-round: 1.75rem;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 6px 20px -8px rgba(74, 52, 112, 0.18);
+  --shadow-polaroid: 0 12px 28px -10px rgba(74, 52, 112, 0.25);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-cream-50);
+    color: var(--color-ink-700);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { @apply leading-relaxed; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-lilac-900);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; line-height: 1.05; font-weight: 600; }
+  h2 { @apply text-3xl md:text-4xl; line-height: 1.15; font-weight: 500; }
+  h3 { @apply text-xl md:text-2xl; line-height: 1.3; font-weight: 500; }
+
+  p { @apply text-base md:text-lg; }
+
+  a { @apply underline-offset-4; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-7 py-3 rounded-full font-medium transition;
+    background-color: var(--color-lilac-700);
+    color: var(--color-cream-50);
+    box-shadow: 0 6px 18px -8px rgba(125, 92, 171, 0.55);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-lilac-900);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-7 py-3 rounded-full font-medium transition border-2;
+    border-color: var(--color-lilac-700);
+    color: var(--color-lilac-700);
+    background-color: transparent;
+  }
+  .btn-secondary:hover {
+    background-color: var(--color-lilac-100);
+  }
+
+  .container-prose {
+    @apply mx-auto max-w-3xl px-6;
+  }
+
+  .container-wide {
+    @apply mx-auto max-w-6xl px-6;
+  }
+
+  .eyebrow {
+    @apply uppercase tracking-[0.18em] text-xs font-semibold;
+    color: var(--color-lilac-700);
+  }
+
+  .card {
+    @apply rounded-3xl p-7 transition;
+    background-color: #ffffff;
+    border: 1px solid var(--color-lilac-100);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-tinted {
+    @apply rounded-3xl p-7 transition;
+    background-color: var(--color-cream-100);
+    border: 1px solid var(--color-cream-200);
+  }
+
+  /* Pastel pill badge — mirrors the flyer's bullet style */
+  .pill {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium;
+    background-color: var(--color-lilac-100);
+    color: var(--color-lilac-900);
+  }
+  .pill-rose   { background-color: var(--color-rose-100);  color: #8a3a59; }
+  .pill-sage   { background-color: var(--color-sage-100);  color: var(--color-sage-600); }
+  .pill-sky    { background-color: var(--color-sky-100);   color: #2f6488; }
+  .pill-sun    { background-color: var(--color-sun-100);   color: #876b1d; }
+  .pill-peach  { background-color: var(--color-peach-100); color: #97492c; }
+
+  /* Polaroid frame for images — white border, soft shadow, optional tilt */
+  .polaroid {
+    @apply rounded-xl bg-white p-3 pb-10;
+    box-shadow: var(--shadow-polaroid);
+  }
+  .polaroid > .polaroid-img {
+    @apply rounded-md overflow-hidden block;
+  }
+
+  /* Soft pastel blob — used as decorative section background, sparingly */
+  .blob {
+    @apply absolute rounded-full blur-3xl opacity-60 pointer-events-none;
+  }
+}

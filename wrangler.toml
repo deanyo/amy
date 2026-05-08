@@ -1,0 +1,17 @@
+# Cloudflare Pages config for Blackfen Little Learners.
+#
+# Most settings (build cmd, output dir, branch) are configured in the
+# Cloudflare dashboard when the GitHub repo is connected. This file is for
+# local `wrangler pages dev` and the Pages Functions runtime.
+
+name = "blackfen-little-learners"
+compatibility_date = "2026-04-01"
+pages_build_output_dir = "dist"
+
+# Environment variables required at runtime by functions/api/contact.ts.
+# Set the actual values in:
+#   Cloudflare dashboard → Pages → blackfen-little-learners → Settings → Environment variables
+# OR locally via .dev.vars (gitignored) for `wrangler pages dev`.
+[vars]
+CONTACT_TO_EMAIL = "mail@dnyo.co.uk"
+CONTACT_FROM_EMAIL = "enquiries@blackfenlittlelearners.co.uk"
