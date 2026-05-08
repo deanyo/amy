@@ -13,5 +13,10 @@ pages_build_output_dir = "dist"
 #   Cloudflare dashboard → Pages → blackfen-little-learners → Settings → Environment variables
 # OR locally via .dev.vars (gitignored) for `wrangler pages dev`.
 [vars]
-CONTACT_TO_EMAIL = "mail@dnyo.co.uk"
-CONTACT_FROM_EMAIL = "enquiries@blackfenlittlelearners.co.uk"
+# Resend's onboarding@resend.dev sandbox sender can only deliver to the
+# Resend account holder's email. Until a sender domain is verified, both
+# of these need to point to that account email.
+# After domain verification, set CONTACT_FROM_EMAIL to something like
+# enquiries@dnyo.co.uk and CONTACT_TO_EMAIL to Amy's actual address.
+CONTACT_TO_EMAIL = "deanryanit@outlook.com"
+CONTACT_FROM_EMAIL = "onboarding@resend.dev"

@@ -78,6 +78,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   });
 
   if (!resp.ok) {
+    const body = await resp.text().catch(() => '<unreadable>');
+    console.log(`Resend error: ${resp.status} ${resp.statusText} — ${body}`);
     return Response.redirect(new URL(ERROR_REDIRECT, request.url).toString(), 303);
   }
 
