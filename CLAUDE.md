@@ -74,13 +74,15 @@ Tokens defined in `src/styles/global.css` as Tailwind v4 `@theme` variables.
 | Name | Where | Purpose |
 |---|---|---|
 | `RESEND_API_KEY` | Pages dashboard secret (encrypted) + local `.dev.vars` | Resend authentication |
-| `CONTACT_TO_EMAIL` | `wrangler.toml` `[vars]` | Recipient. Currently `deanryanit@outlook.com` due to Resend sandbox |
-| `CONTACT_FROM_EMAIL` | `wrangler.toml` `[vars]` | Sender. Currently `onboarding@resend.dev` (Resend's default test sender) |
+| `CONTACT_TO_EMAIL` | `wrangler.toml` `[vars]` | Recipient. `amy@blackfenlittlelearners.co.uk` (forwarded to Amy's Gmail by Cloudflare Email Routing) |
+| `CONTACT_FROM_EMAIL` | `wrangler.toml` `[vars]` | Sender. `enquiries@blackfenlittlelearners.co.uk` (domain verified on Resend) |
 
-**Important Resend sandbox limit:** while using `onboarding@resend.dev` as the
-sender, emails can ONLY be delivered to the Resend account holder's email
-(`deanryanit@outlook.com`). To deliver to any other address (e.g. Amy's),
-verify a domain on Resend and update both env vars. See TODO.md.
+**Email setup:** the domain is verified on Resend (DKIM + SPF on the
+`send` subdomain), so the contact form can send from any
+`@blackfenlittlelearners.co.uk` address. Inbound mail is handled by
+Cloudflare Email Routing — `amy@…` and a catch-all forward to
+`amyrking6@gmail.com`. Forwarding target can be changed in the Cloudflare
+Email Routing UI without a code change.
 
 ### Local development of the function
 

@@ -20,21 +20,10 @@ These need real info from Amy before they can be done.
 - [ ] **Real bio copy** for `/about/` (current is reasonable placeholder, but Amy should sign off)
 - [ ] **Decide on rates / sessions** — currently no rates anywhere; should `/setting/` or a new section show indicative prices?
 
-## Domain cutover (`blackfenlittlelearners.co.uk`)
+## Email follow-ups
 
-Domain registered at Gandi. Plan: move DNS to Cloudflare, attach as
-custom domain on Pages, then verify on Resend so form emails can come
-from a real sender.
-
-- [ ] **Add site to Cloudflare** (Cloudflare dashboard → Add a site → `blackfenlittlelearners.co.uk` → Free plan). Cloudflare gives two nameservers
-- [ ] **Switch nameservers at Gandi** to the Cloudflare-supplied pair (Gandi → Domain → Nameservers → External). Propagation usually < 1 hour
-- [ ] **Attach custom domain to Pages** — Pages → `blackfen-little-learners` → Custom domains → add `blackfenlittlelearners.co.uk` AND `www.blackfenlittlelearners.co.uk` (Cloudflare auto-creates the DNS records and SSL cert)
-- [ ] **Verify domain on Resend** — Resend → Domains → Add domain → add the SPF/DKIM/return-path records to Cloudflare DNS
-- [ ] **Switch contact recipient** — once Resend domain is verified, edit `wrangler.toml`:
-  - `CONTACT_TO_EMAIL` → Amy's preferred address
-  - `CONTACT_FROM_EMAIL` → `enquiries@blackfenlittlelearners.co.uk`
-- [ ] **Email forwarding (optional)** — `hello@blackfenlittlelearners.co.uk` forwarding to Amy's inbox via Cloudflare Email Routing (free)
-- [ ] **Update Footer email** — `Footer.astro` currently shows `mail@dnyo.co.uk`; swap to a `@blackfenlittlelearners.co.uk` address once Email Routing is set up
+- [ ] **Update Footer email** — `Footer.astro` currently shows `mail@dnyo.co.uk`; swap to `amy@blackfenlittlelearners.co.uk` (Email Routing forwards to Amy's Gmail)
+- [ ] **Google Workspace (later)** — once Amy wants to *send* from `amy@blackfenlittlelearners.co.uk` (currently she can only receive via Cloudflare Email Routing), set up a Workspace mailbox. Not needed pre-launch
 
 ## Content polish
 
@@ -76,3 +65,7 @@ from a real sender.
 - [x] Cloudflare Pages project connected to Git → auto-deploys on push to `main`
 - [x] Contact form Pages Function → Resend → email delivery confirmed end-to-end
 - [x] CLAUDE.md and TODO.md
+- [x] `/news/` page with embedded Facebook post + nav entry
+- [x] Custom domain `blackfenlittlelearners.co.uk` registered at Gandi, DNS moved to Cloudflare, attached to Pages with SSL, www → apex redirect
+- [x] Cloudflare Email Routing — `amy@…` and catch-all forward to Amy's Gmail
+- [x] Resend domain verification — contact form sends from `enquiries@blackfenlittlelearners.co.uk` to `amy@blackfenlittlelearners.co.uk`

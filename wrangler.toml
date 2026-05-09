@@ -13,10 +13,10 @@ pages_build_output_dir = "dist"
 #   Cloudflare dashboard → Pages → blackfen-little-learners → Settings → Environment variables
 # OR locally via .dev.vars (gitignored) for `wrangler pages dev`.
 [vars]
-# Resend's onboarding@resend.dev sandbox sender can only deliver to the
-# Resend account holder's email. Until a sender domain is verified, both
-# of these need to point to that account email.
-# After domain verification, set CONTACT_FROM_EMAIL to something like
-# enquiries@dnyo.co.uk and CONTACT_TO_EMAIL to Amy's actual address.
-CONTACT_TO_EMAIL = "deanryanit@outlook.com"
-CONTACT_FROM_EMAIL = "onboarding@resend.dev"
+# blackfenlittlelearners.co.uk is verified on Resend, so we can send from
+# a real address. CONTACT_TO_EMAIL is forwarded to Amy's Gmail by
+# Cloudflare Email Routing — keeping the @blackfenlittlelearners.co.uk
+# address here means the forwarding target can change without a code
+# change/redeploy.
+CONTACT_TO_EMAIL = "amy@blackfenlittlelearners.co.uk"
+CONTACT_FROM_EMAIL = "enquiries@blackfenlittlelearners.co.uk"
