@@ -8,11 +8,14 @@ Status: pre-registration with Ofsted, aiming to open September.
 
 ## Live deployment
 
-- **Production:** https://blackfen-little-learners.pages.dev (custom domain `blackfenlittlelearners.co.uk` registered at Gandi, not yet attached — see TODO.md)
+- **Production:** https://blackfenlittlelearners.co.uk (`blackfen-little-learners.pages.dev` still works as a fallback)
+- **Domain:** registered at Gandi; DNS managed at Cloudflare; `www` 301 → apex
 - **GitHub:** https://github.com/deanyo/amy (public)
 - **Auto-deploy:** every push to `main` triggers a Cloudflare Pages build (~30–60s warm cache)
 - **Cloudflare project:** `blackfen-little-learners` (Git-connected)
 - **Cloudflare account:** `deanryanit@outlook.com`
+- **Email:** Cloudflare Email Routing forwards `amy@…` and catch-all to `amyrking6@gmail.com`; Resend verified for outbound (contact form)
+- **Google Search Console:** domain property verified; sitemap submitted
 
 For ongoing TODOs and planned work see `TODO.md` — this file is for context
 that helps a fresh session orient quickly.
@@ -127,6 +130,6 @@ npm run pages:dev                           # serves dist/ with the function bou
 ## Out of scope (for now)
 
 - CMS / content editing UI — Amy edits via brother for now.
-- Blog / news section.
+- Native blog (Facebook embed on `/news/` is the lightweight stand-in).
 - Booking / availability system.
 - E-commerce — no payments through the site.

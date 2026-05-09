@@ -26,10 +26,10 @@ These need real info from Amy before they can be done.
 
 ## SEO follow-ups (you-side, no code)
 
-- [ ] **Google Search Console** — verify the domain (TXT record), submit `https://blackfenlittlelearners.co.uk/sitemap-index.xml`. Indexing typically within days
-- [ ] **Bing Webmaster Tools** — same idea, free, takes 2 min
+- [ ] **Bing Webmaster Tools** — free, ~2 min; offers a one-click "Import from Google Search Console" once GSC is set up
 - [ ] **Google Business Profile** — *the* big SEO win for local childcare ("childminder near me" → Maps). Best done once Ofsted-registered so the URN can verify her as a real provider
-- [ ] **Validate share previews** — once a deploy includes the new OG tags, drop `https://blackfenlittlelearners.co.uk` into Facebook's [Sharing Debugger](https://developers.facebook.com/tools/debug/), Twitter's Card Validator, and the LinkedIn Post Inspector so each platform caches the preview
+- [ ] **Validate share previews** — drop `https://blackfenlittlelearners.co.uk` into Facebook's [Sharing Debugger](https://developers.facebook.com/tools/debug/), the LinkedIn Post Inspector, and any other platforms whose cache you want primed
+- [ ] **Watch Search Console for issues** — over the next few weeks, check Coverage / Core Web Vitals / Mobile Usability tabs occasionally for surprises
 
 ## Content polish
 
@@ -45,7 +45,6 @@ These need real info from Amy before they can be done.
 - [ ] **Cloudflare Web Analytics** — free, privacy-friendly; just needs a snippet in `Layout.astro` once the site is public
 - [ ] **Proper logo / favicon design pass** — current header glyph and favicon are a hand-drawn rainbow on a cream roundel, taking cues from Amy's social posts. Worth revisiting with a designer once Amy is open (logo will also be needed for printed materials, signage, name badges, registration paperwork). The SVG lives inline in `Header.astro` and at `public/favicon.svg`
 - [ ] **Lighthouse pass** — already strong (static site, no JS) but worth verifying score before launch
-- [ ] **Replace placeholder favicon** — current `L` glyph in lilac square; could be a custom mark once branding is settled
 
 ## Operations
 
@@ -76,3 +75,6 @@ These need real info from Amy before they can be done.
 - [x] Resend domain verification — contact form sends from `enquiries@blackfenlittlelearners.co.uk` to `amy@blackfenlittlelearners.co.uk`
 - [x] Footer + contact info refresh: real `amy@…` address, WhatsApp CTA, branded social pill icons (WA / FB / IG)
 - [x] SEO pass: per-page descriptions, canonical URLs, Open Graph + Twitter Card tags with 1200×630 OG image, ChildCare JSON-LD on home, sitemap, robots.txt, `/thanks/` excluded from indexing
+- [x] Header glyph + favicon: rainbow mark on cream roundel (matches Amy's social branding)
+- [x] Bexley + Sidcup mentions in three natural places (footer, default meta description, /contact/) for local SEO without keyword stuffing
+- [x] Google Search Console: domain verified, sitemap submitted
