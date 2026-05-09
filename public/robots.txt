@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /thanks/
+
+Sitemap: https://blackfenlittlelearners.co.uk/sitemap-index.xml

@@ -6,12 +6,61 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  /** Path to OG image relative to site root, e.g. /og-image.jpg */
+  image?: string;
+  /** Set true for pages we don't want indexed (e.g. /thanks/) */
+  noIndex?: boolean;
+  /** Inject site-wide structured data on the homepage only */
+  isHome?: boolean;
 }
 
+const SITE_NAME = 'Blackfen Little Learners';
+const SITE_DESCRIPTION =
+  'Teacher-led home childminding in Blackfen, southeast London. A warm, nurturing setting led by a qualified primary school teacher with extensive Early Years experience. Opening September, subject to Ofsted registration.';
+const DEFAULT_OG_IMAGE = '/og-image.jpg';
+
 const {
-  title = 'Blackfen Little Learners · Teacher-Led Childminding',
-  description = 'Teacher-led home childminding in Blackfen, southeast London. A warm, nurturing setting led by a qualified primary school teacher with extensive Early Years experience. Opening September, subject to Ofsted registration.',
+  title = `${SITE_NAME} · Teacher-Led Childminding`,
+  description = SITE_DESCRIPTION,
+  image = DEFAULT_OG_IMAGE,
+  noIndex = false,
+  isHome = false,
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const imageURL = new URL(image, Astro.site).toString();
+
+const childcareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ChildCare',
+  name: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  url: 'https://blackfenlittlelearners.co.uk',
+  telephone: '+44 7933 177062',
+  email: 'amy@blackfenlittlelearners.co.uk',
+  image: imageURL,
+  areaServed: [
+    { '@type': 'Place', name: 'Blackfen, London' },
+    { '@type': 'Place', name: 'Bexley, London' },
+    { '@type': 'Place', name: 'Sidcup, London' },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Blackfen',
+    addressRegion: 'London',
+    addressCountry: 'GB',
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '08:00',
+    closes: '17:30',
+  },
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=61570811308988',
+    'https://www.instagram.com/blackfenlittlelearners/',
+  ],
+};
 ---
 
 <!doctype html>
@@ -19,9 +68,31 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
     <meta name="theme-color" content="#fdf8ec" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    {noIndex && <meta name="robots" content="noindex,follow" />}
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${SITE_NAME} — ${description}`} />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,7 +101,9 @@ const {
       rel="stylesheet"
     />
 
-    <title>{title}</title>
+    {isHome && (
+      <script type="application/ld+json" set:html={JSON.stringify(childcareSchema)} />
+    )}
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />

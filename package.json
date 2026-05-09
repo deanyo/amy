@@ -12,7 +12,8 @@
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "pages:dev": "npm run build && wrangler pages dev dist",
-    "pages:deploy": "npm run build && wrangler pages deploy dist"
+    "pages:deploy": "npm run build && wrangler pages deploy dist",
+    "og:build": "node scripts/build-og-image.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.0",
@@ -20,7 +21,9 @@
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.2",
     "@playwright/test": "^1.59.1",
+    "sharp": "^0.34.5",
     "wrangler": "^4.90.0"
   }
 }

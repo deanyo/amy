@@ -1,12 +1,17 @@
 import { test, expect, type ConsoleMessage } from '@playwright/test';
 
-const pages = ['/', '/about/', '/setting/', '/qualifications/', '/contact/', '/privacy/', '/thanks/'];
+const pages = ['/', '/about/', '/setting/', '/qualifications/', '/news/', '/contact/', '/privacy/', '/thanks/'];
 
 for (const path of pages) {
   test(`${path} renders without console errors`, async ({ page }) => {
     const errors: string[] = [];
     page.on('console', (msg: ConsoleMessage) => {
-      if (msg.type() === 'error') errors.push(msg.text());
+      if (msg.type() !== 'error') return;
+      // Ignore noise from third-party iframes we don't control (e.g.
+      // Facebook's embedded-posts plugin emits ErrorUtils warnings).
+      const url = msg.location()?.url ?? '';
+      if (url.includes('facebook.com') || url.includes('fbcdn.net')) return;
+      errors.push(msg.text());
     });
     page.on('pageerror', (err) => errors.push(err.message));
 
@@ -32,7 +37,7 @@ test('contact form has required fields', async ({ page }) => {
 
 test('primary nav links resolve', async ({ page }) => {
   await page.goto('/');
-  for (const path of ['/about/', '/setting/', '/qualifications/', '/contact/']) {
+  for (const path of ['/about/', '/setting/', '/qualifications/', '/news/', '/contact/']) {
     const response = await page.request.get(path);
     expect(response.status(), `nav target ${path}`).toBe(200);
   }

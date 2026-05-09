@@ -22,8 +22,14 @@ These need real info from Amy before they can be done.
 
 ## Email follow-ups
 
-- [ ] **Update Footer email** — `Footer.astro` currently shows `mail@dnyo.co.uk`; swap to `amy@blackfenlittlelearners.co.uk` (Email Routing forwards to Amy's Gmail)
 - [ ] **Google Workspace (later)** — once Amy wants to *send* from `amy@blackfenlittlelearners.co.uk` (currently she can only receive via Cloudflare Email Routing), set up a Workspace mailbox. Not needed pre-launch
+
+## SEO follow-ups (you-side, no code)
+
+- [ ] **Google Search Console** — verify the domain (TXT record), submit `https://blackfenlittlelearners.co.uk/sitemap-index.xml`. Indexing typically within days
+- [ ] **Bing Webmaster Tools** — same idea, free, takes 2 min
+- [ ] **Google Business Profile** — *the* big SEO win for local childcare ("childminder near me" → Maps). Best done once Ofsted-registered so the URN can verify her as a real provider
+- [ ] **Validate share previews** — once a deploy includes the new OG tags, drop `https://blackfenlittlelearners.co.uk` into Facebook's [Sharing Debugger](https://developers.facebook.com/tools/debug/), Twitter's Card Validator, and the LinkedIn Post Inspector so each platform caches the preview
 
 ## Content polish
 
@@ -36,8 +42,6 @@ These need real info from Amy before they can be done.
 
 - [ ] **Remove Resend error logging from prod (or scope it)** — `console.log(...)` in `functions/api/contact.ts` runs on every failure; fine while bedding in but clean up before high traffic
 - [ ] **Form rate limiting** — currently anyone can hammer `/api/contact`. Add a simple Cloudflare rate-limit rule (free, 1 req/min per IP) when traffic warrants
-- [ ] **Open Graph / Twitter card metadata** — for nice social previews when the URL is shared. Add to `Layout.astro`
-- [ ] **Sitemap + robots.txt** — Astro has `@astrojs/sitemap` integration; one-liner to add
 - [ ] **Cloudflare Web Analytics** — free, privacy-friendly; just needs a snippet in `Layout.astro` once the site is public
 - [ ] **Lighthouse pass** — already strong (static site, no JS) but worth verifying score before launch
 - [ ] **Replace placeholder favicon** — current `L` glyph in lilac square; could be a custom mark once branding is settled
@@ -69,3 +73,5 @@ These need real info from Amy before they can be done.
 - [x] Custom domain `blackfenlittlelearners.co.uk` registered at Gandi, DNS moved to Cloudflare, attached to Pages with SSL, www → apex redirect
 - [x] Cloudflare Email Routing — `amy@…` and catch-all forward to Amy's Gmail
 - [x] Resend domain verification — contact form sends from `enquiries@blackfenlittlelearners.co.uk` to `amy@blackfenlittlelearners.co.uk`
+- [x] Footer + contact info refresh: real `amy@…` address, WhatsApp CTA, branded social pill icons (WA / FB / IG)
+- [x] SEO pass: per-page descriptions, canonical URLs, Open Graph + Twitter Card tags with 1200×630 OG image, ChildCare JSON-LD on home, sitemap, robots.txt, `/thanks/` excluded from indexing
