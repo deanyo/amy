@@ -8,7 +8,7 @@ Status: pre-registration with Ofsted, aiming to open September.
 
 ## Live deployment
 
-- **Production:** https://blackfen-little-learners.pages.dev
+- **Production:** https://blackfen-little-learners.pages.dev (custom domain `blackfenlittlelearners.co.uk` registered at Gandi, not yet attached — see TODO.md)
 - **GitHub:** https://github.com/deanyo/amy (public)
 - **Auto-deploy:** every push to `main` triggers a Cloudflare Pages build (~30–60s warm cache)
 - **Cloudflare project:** `blackfen-little-learners` (Git-connected)

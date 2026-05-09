@@ -20,15 +20,21 @@ These need real info from Amy before they can be done.
 - [ ] **Real bio copy** for `/about/` (current is reasonable placeholder, but Amy should sign off)
 - [ ] **Decide on rates / sessions** — currently no rates anywhere; should `/setting/` or a new section show indicative prices?
 
-## Blocked on a domain decision
+## Domain cutover (`blackfenlittlelearners.co.uk`)
 
-- [ ] **Pick + register a domain** for the business. Suggested: `blackfenlittlelearners.co.uk` via Gandi
-- [ ] **Attach domain to Cloudflare Pages** — Settings → Custom domains → add domain → Cloudflare walks through DNS
-- [ ] **Verify domain on Resend** — adds DNS records (SPF, DKIM, return-path); then form emails come from `enquiries@<domain>` instead of `onboarding@resend.dev`
-- [ ] **Switch contact recipient** — once domain is verified on Resend, edit `wrangler.toml`:
+Domain registered at Gandi. Plan: move DNS to Cloudflare, attach as
+custom domain on Pages, then verify on Resend so form emails can come
+from a real sender.
+
+- [ ] **Add site to Cloudflare** (Cloudflare dashboard → Add a site → `blackfenlittlelearners.co.uk` → Free plan). Cloudflare gives two nameservers
+- [ ] **Switch nameservers at Gandi** to the Cloudflare-supplied pair (Gandi → Domain → Nameservers → External). Propagation usually < 1 hour
+- [ ] **Attach custom domain to Pages** — Pages → `blackfen-little-learners` → Custom domains → add `blackfenlittlelearners.co.uk` AND `www.blackfenlittlelearners.co.uk` (Cloudflare auto-creates the DNS records and SSL cert)
+- [ ] **Verify domain on Resend** — Resend → Domains → Add domain → add the SPF/DKIM/return-path records to Cloudflare DNS
+- [ ] **Switch contact recipient** — once Resend domain is verified, edit `wrangler.toml`:
   - `CONTACT_TO_EMAIL` → Amy's preferred address
-  - `CONTACT_FROM_EMAIL` → `enquiries@<domain>`
-- [ ] **Email forwarding (optional)** — `mail@<domain>` forwarding to Amy's inbox via Cloudflare Email Routing (free)
+  - `CONTACT_FROM_EMAIL` → `enquiries@blackfenlittlelearners.co.uk`
+- [ ] **Email forwarding (optional)** — `hello@blackfenlittlelearners.co.uk` forwarding to Amy's inbox via Cloudflare Email Routing (free)
+- [ ] **Update Footer email** — `Footer.astro` currently shows `mail@dnyo.co.uk`; swap to a `@blackfenlittlelearners.co.uk` address once Email Routing is set up
 
 ## Content polish
 
