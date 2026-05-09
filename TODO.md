@@ -43,7 +43,7 @@ These need real info from Amy before they can be done.
 - [ ] **Remove Resend error logging from prod (or scope it)** — `console.log(...)` in `functions/api/contact.ts` runs on every failure; fine while bedding in but clean up before high traffic
 - [ ] **Form rate limiting** — currently anyone can hammer `/api/contact`. Add a simple Cloudflare rate-limit rule (free, 1 req/min per IP) when traffic warrants
 - [ ] **Cloudflare Web Analytics** — free, privacy-friendly; just needs a snippet in `Layout.astro` once the site is public
-- [ ] **Proper logo / favicon design pass** — current header glyph and favicon are a temporary `BLL` monogram on the lilac roundel. Worth revisiting with a designer once Amy is open (logo will also be needed for printed materials, signage, name badges, registration paperwork). Replace `public/favicon.svg` and the inline `<span>BLL</span>` in `Header.astro`
+- [ ] **Proper logo / favicon design pass** — current header glyph and favicon are a hand-drawn rainbow on a cream roundel, taking cues from Amy's social posts. Worth revisiting with a designer once Amy is open (logo will also be needed for printed materials, signage, name badges, registration paperwork). The SVG lives inline in `Header.astro` and at `public/favicon.svg`
 - [ ] **Lighthouse pass** — already strong (static site, no JS) but worth verifying score before launch
 - [ ] **Replace placeholder favicon** — current `L` glyph in lilac square; could be a custom mark once branding is settled
 
