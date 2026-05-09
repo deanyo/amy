@@ -33,3 +33,4 @@ playwright/.cache/
 
 # screenshots from Chrome DevTools MCP
 .screenshots/
+.tmp/
