@@ -34,3 +34,6 @@ playwright/.cache/
 # screenshots from Chrome DevTools MCP
 .screenshots/
 .tmp/
+
+# DNS zone exports (snapshots; go stale immediately)
+*.co.uk.txt
