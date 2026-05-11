@@ -118,6 +118,19 @@ const showError = Astro.url.searchParams.get('error') === '1';
         </div>
 
         <div>
+          <label for="phone" class="block text-sm font-medium text-lilac-900 mb-2">Phone</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            inputmode="tel"
+            required
+            class="w-full rounded-xl border border-lilac-100 bg-cream-50 px-4 py-3 text-ink-900 focus:outline-none focus:border-lilac-500"
+          />
+        </div>
+
+        <div>
           <label for="child-age" class="block text-sm font-medium text-lilac-900 mb-2">
             Child's age <span class="text-ink-700/50 font-normal">(optional)</span>
           </label>

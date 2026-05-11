@@ -30,10 +30,11 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   const name = (form.get('name') as string | null)?.trim() ?? '';
   const email = (form.get('email') as string | null)?.trim() ?? '';
+  const phone = (form.get('phone') as string | null)?.trim() ?? '';
   const childAge = (form.get('child_age') as string | null)?.trim() ?? '';
   const message = (form.get('message') as string | null)?.trim() ?? '';
 
-  if (!name || !email || !message) {
+  if (!name || !email || !phone || !message) {
     return Response.redirect(new URL(ERROR_REDIRECT, request.url).toString(), 303);
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -44,6 +45,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const text = [
     `Name: ${name}`,
     `Email: ${email}`,
+    `Phone: ${phone}`,
     childAge ? `Child's age: ${childAge}` : null,
     '',
     'Message:',
@@ -56,6 +58,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     <h2>New enquiry — Blackfen Little Learners</h2>
     <p><strong>Name:</strong> ${escape(name)}</p>
     <p><strong>Email:</strong> <a href="mailto:${escape(email)}">${escape(email)}</a></p>
+    <p><strong>Phone:</strong> <a href="tel:${escape(phone)}">${escape(phone)}</a></p>
     ${childAge ? `<p><strong>Child's age:</strong> ${escape(childAge)}</p>` : ''}
     <p><strong>Message:</strong></p>
     <p>${escape(message).replace(/\n/g, '<br />')}</p>

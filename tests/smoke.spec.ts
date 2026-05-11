@@ -31,6 +31,7 @@ test('contact form has required fields', async ({ page }) => {
   await page.goto('/contact/');
   await expect(page.locator('input[name="name"]')).toBeVisible();
   await expect(page.locator('input[name="email"]')).toBeVisible();
+  await expect(page.locator('input[name="phone"]')).toBeVisible();
   await expect(page.locator('textarea[name="message"]')).toBeVisible();
   await expect(page.locator('button[type="submit"]')).toBeVisible();
 });
