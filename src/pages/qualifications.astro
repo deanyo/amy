@@ -13,6 +13,31 @@ const verified = [
     body: 'Several years of focused Early Years practice — the foundation for everything we do at Blackfen Little Learners.',
     cls: 'pill pill-rose',
   },
+  {
+    title: 'Paediatric First Aid',
+    body: 'Full 12-hour paediatric first aid certification completed, in line with EYFS requirements.',
+    cls: 'pill pill-sky',
+  },
+  {
+    title: 'Safeguarding training',
+    body: 'Up-to-date safeguarding training completed, covering child protection responsibilities required for Ofsted registration.',
+    cls: 'pill pill-sage',
+  },
+  {
+    title: 'Enhanced DBS',
+    body: 'Enhanced DBS check completed via the update service, alongside checks for adults living in the home.',
+    cls: 'pill pill-sun',
+  },
+  {
+    title: 'Public liability insurance',
+    body: 'Childminding insurance in place through a recognised provider, ahead of opening.',
+    cls: 'pill pill-peach',
+  },
+  {
+    title: 'Food hygiene',
+    body: 'Food hygiene training completed, so meals and snacks at the setting are prepared safely.',
+    cls: 'pill pill-rose',
+  },
 ];
 
 // In-progress / required-by-Ofsted-before-opening — honest about the timeline.
@@ -21,28 +46,12 @@ const inProgress = [
     title: 'Ofsted registration',
     body: 'Currently in the pre-registration stage with Ofsted. Our URN will be displayed here as soon as it is issued.',
   },
-  {
-    title: 'Paediatric First Aid',
-    body: 'Completing the full 12-hour paediatric first aid certification, in line with EYFS requirements.',
-  },
-  {
-    title: 'Enhanced DBS',
-    body: 'Enhanced DBS check via the update service for the lead childminder, and for any adults living in the home, as required for Ofsted registration.',
-  },
-  {
-    title: 'Public liability insurance',
-    body: 'Childminding insurance through a recognised provider is being put in place ahead of opening.',
-  },
-  {
-    title: 'Safeguarding & EYFS training',
-    body: 'Refreshing safeguarding, food hygiene, and Early Years Foundation Stage training as part of the Ofsted registration process.',
-  },
 ];
 ---
 
 <Layout
   title="Qualifications · Blackfen Little Learners"
-  description="Amy King's qualifications and checks: Qualified Teacher Status, Early Years experience, paediatric first aid, safeguarding, DBS, and Ofsted registration in progress."
+  description="Amy King's qualifications and checks: Qualified Teacher Status, Early Years experience, paediatric first aid, safeguarding, enhanced DBS, public liability insurance, food hygiene, and Ofsted registration in progress."
 >
   <section class="py-16 md:py-20">
     <div class="container-wide">
@@ -69,8 +78,8 @@ const inProgress = [
 
       <h2 class="mt-14 text-2xl">In progress for opening</h2>
       <p class="mt-2 text-ink-700/70 text-sm max-w-2xl">
-        Each of the following is required by Ofsted before we can open, and
-        we're working through them as part of registration.
+        The final piece before we can open — Ofsted registration is well
+        underway and our URN will be added here as soon as it is issued.
       </p>
       <ul class="mt-6 grid md:grid-cols-2 gap-6">
         {inProgress.map((c) => (
