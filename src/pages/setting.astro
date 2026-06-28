@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Polaroid from '../components/Polaroid.astro';
-import settingPhoto from '../assets/photos/setting.jpg';
-import toysPhoto from '../assets/photos/toys1.jpg';
-import booksPhoto from '../assets/photos/bookstoys1.jpg';
+import exteriorPhoto from '../assets/photos/space-extierior-master-copy.jpg';
+import interiorPhoto from '../assets/photos/space-interior-master-copy.jpg';
+import interior1Photo from '../assets/photos/space-interier1.jpg';
+import interior2Photo from '../assets/photos/space-interier2.jpg';
 
 const features = [
   {
@@ -51,7 +52,7 @@ const features = [
   <!-- Hero photo -->
   <section class="container-wide pb-16">
     <Polaroid
-      src={settingPhoto}
+      src={exteriorPhoto}
       alt="The purpose-built garden outbuilding under a tree, with bi-fold doors looking onto a calm interior"
       caption="The garden room"
       rotate="rotate-1"
@@ -91,8 +92,8 @@ const features = [
       <ul class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6">
         <li>
           <Polaroid
-            src={toysPhoto}
-            alt="Baskets of magnetic tiles, building blocks and wooden toys on a textured rug"
+            src={interior1Photo}
+            alt="Inside the garden room, with toys and resources arranged for play"
             rotate="-rotate-2"
             aspect="aspect-[4/5]"
             width={600}
@@ -100,8 +101,8 @@ const features = [
         </li>
         <li>
           <Polaroid
-            src={booksPhoto}
-            alt="Children's picture books — Julia Donaldson, Peter Rabbit, Peppa Pig — spread out on the floor"
+            src={interior2Photo}
+            alt="A reading and play area inside the setting"
             rotate="rotate-1"
             aspect="aspect-square"
             width={600}
@@ -109,8 +110,8 @@ const features = [
         </li>
         <li>
           <Polaroid
-            src={settingPhoto}
-            alt="Exterior of the garden outbuilding"
+            src={interiorPhoto}
+            alt="Inside the garden room, viewed from the bi-fold doors"
             rotate="rotate-2"
             aspect="aspect-[4/5]"
             width={600}
@@ -119,7 +120,7 @@ const features = [
       </ul>
 
       <p class="mt-10 text-sm text-ink-700/60 text-center">
-        More photos of the setting and resources coming soon.
+        See the <a href="/gallery/" class="text-lilac-700 hover:underline">full gallery</a> for more photos.
       </p>
     </div>
   </section>

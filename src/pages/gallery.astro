@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Polaroid from '../components/Polaroid.astro';
+import exteriorMaster from '../assets/photos/space-extierior-master-copy.jpg';
+import interiorMaster from '../assets/photos/space-interior-master-copy.jpg';
+import interior1 from '../assets/photos/space-interier1.jpg';
+import interior2 from '../assets/photos/space-interier2.jpg';
+import gallery1 from '../assets/photos/gallery1.jpg';
+import gallery2 from '../assets/photos/gallery2.jpg';
+import gallery3 from '../assets/photos/gallery-3.jpg';
+import gallerySandpit from '../assets/photos/gallery-sandpit-3.jpg';
+import settingPhoto from '../assets/photos/setting.jpg';
+import toysPhoto from '../assets/photos/toys1.jpg';
+import booksPhoto from '../assets/photos/bookstoys1.jpg';
+
+const photos = [
+  { src: exteriorMaster, alt: 'The purpose-built garden outbuilding, viewed from across the lawn', aspect: 'aspect-[4/5]', rotate: 'rotate-1' },
+  { src: interiorMaster, alt: 'Inside the garden room, with bi-fold doors looking onto the lawn', aspect: 'aspect-[4/5]', rotate: '-rotate-1' },
+  { src: gallery1,       alt: 'Children’s toys and resources arranged in the garden room',        aspect: 'aspect-[4/5]', rotate: 'rotate-2' },
+  { src: gallery2,       alt: 'A cosy reading and play corner inside the setting',                     aspect: 'aspect-[4/5]', rotate: '-rotate-2' },
+  { src: interior1,      alt: 'Inside the garden room, with toys and resources arranged for play',     aspect: 'aspect-[4/5]', rotate: 'rotate-1' },
+  { src: interior2,      alt: 'A reading and play area inside the setting',                            aspect: 'aspect-[4/5]', rotate: '-rotate-1' },
+  { src: gallery3,       alt: 'Resources and play set-up inside the garden room',                      aspect: 'aspect-[4/5]', rotate: '-rotate-2' },
+  { src: gallerySandpit, alt: 'A sandpit set up for outdoor play in the garden',                       aspect: 'aspect-[4/5]', rotate: 'rotate-2' },
+  { src: settingPhoto,   alt: 'The garden outbuilding under a tree, with bi-fold doors and an egg chair', aspect: 'aspect-[4/5]', rotate: 'rotate-1' },
+  { src: toysPhoto,      alt: 'Baskets of magnetic tiles, building blocks and wooden toys on a rug',   aspect: 'aspect-[4/5]', rotate: '-rotate-1' },
+  { src: booksPhoto,     alt: 'Children’s picture books spread out on the floor',                 aspect: 'aspect-[4/5]', rotate: 'rotate-2' },
+];
+---
+
+<Layout
+  title="Gallery · Blackfen Little Learners"
+  description="A look around our purpose-built garden room and outdoor space in Blackfen — toys, books, reading corners, and the sandpit."
+>
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div class="blob bg-rose-200" style="width: 360px; height: 360px; top: -100px; left: -80px;"></div>
+      <div class="blob bg-sage-200" style="width: 320px; height: 320px; top: 200px; right: -100px;"></div>
+    </div>
+    <div class="container-wide pt-14 md:pt-20 pb-10">
+      <p class="eyebrow mb-3">Gallery</p>
+      <h1 class="max-w-3xl text-balance">A look around our setting.</h1>
+      <p class="mt-6 text-ink-700/85 max-w-2xl">
+        Photos of the purpose-built garden room, the resources we've gathered,
+        and the outdoor space the children share. We'll keep adding to this
+        as we get closer to opening.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20 md:pb-24">
+    <div class="container-wide">
+      <ul class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        {photos.map((p, i) => (
+          <li>
+            <Polaroid
+              src={p.src}
+              alt={p.alt}
+              aspect={p.aspect}
+              rotate={p.rotate}
+              width={700}
+              priority={i < 2}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16">
+    <div class="container-prose text-center">
+      <h2>Want to see it for yourself?</h2>
+      <p class="mt-4 text-ink-700/80">
+        Once we're registered, we'd love to invite you over for a no-obligation
+        visit. In the meantime, please register your interest.
+      </p>
+      <a href="/contact/" class="btn-primary mt-7">Register interest</a>
+    </div>
+  </section>
+</Layout>

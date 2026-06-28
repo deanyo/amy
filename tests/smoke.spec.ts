@@ -1,6 +1,6 @@
 import { test, expect, type ConsoleMessage } from '@playwright/test';
 
-const pages = ['/', '/about/', '/setting/', '/qualifications/', '/news/', '/contact/', '/privacy/', '/thanks/'];
+const pages = ['/', '/about/', '/setting/', '/gallery/', '/qualifications/', '/news/', '/contact/', '/privacy/', '/thanks/'];
 
 for (const path of pages) {
   test(`${path} renders without console errors`, async ({ page }) => {
@@ -38,7 +38,7 @@ test('contact form has required fields', async ({ page }) => {
 
 test('primary nav links resolve', async ({ page }) => {
   await page.goto('/');
-  for (const path of ['/about/', '/setting/', '/qualifications/', '/news/', '/contact/']) {
+  for (const path of ['/about/', '/setting/', '/gallery/', '/qualifications/', '/news/', '/contact/']) {
     const response = await page.request.get(path);
     expect(response.status(), `nav target ${path}`).toBe(200);
   }
