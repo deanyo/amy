@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Polaroid from '../components/Polaroid.astro';
 import exteriorPhoto from '../assets/photos/space-extierior-master-copy.jpg';
-import interiorPhoto from '../assets/photos/space-interior-master-copy.jpg';
-import gallery1Photo from '../assets/photos/gallery1.jpg';
-import gallery2Photo from '../assets/photos/gallery2.jpg';
+import interiorThroughDoors from '../assets/photos/space-interier1.jpg';
+import heroAccentPhoto from '../assets/photos/toys-kitchen.jpg';
+import booksShelfPhoto from '../assets/photos/toys-books-shelf.jpg';
+import marketStallPhoto from '../assets/photos/gallery-3.jpg';
 
 const heroBadges = [
   { label: 'Qualified Teacher', cls: 'pill' },
@@ -63,8 +64,8 @@ const practicalInfo = [
           width={900}
         />
         <Polaroid
-          src={interiorPhoto}
-          alt="Inside the garden room, with toys, books and soft natural light"
+          src={heroAccentPhoto}
+          alt="A wooden play kitchen with pots, pans and a toy watermelon to slice"
           rotate="-rotate-6"
           aspect="aspect-square"
           class="hidden md:block absolute -bottom-6 -left-6 w-44"
@@ -133,23 +134,23 @@ const practicalInfo = [
     <div class="container-wide grid lg:grid-cols-2 gap-12 items-center">
       <div class="grid grid-cols-2 gap-4 max-w-md">
         <Polaroid
-          src={gallery1Photo}
-          alt="Children's toys and resources arranged in the garden room"
+          src={booksShelfPhoto}
+          alt="A wooden book stand with picture books and a row of rainbow balance stones"
           rotate="-rotate-2"
           aspect="aspect-square"
           class="mt-8"
           width={500}
         />
         <Polaroid
-          src={gallery2Photo}
-          alt="A cosy reading and play corner inside the setting"
+          src={marketStallPhoto}
+          alt="A wooden market stall with pretend produce, alongside a doll pram"
           rotate="rotate-2"
           aspect="aspect-[4/5]"
           width={500}
         />
         <Polaroid
-          src={interiorPhoto}
-          alt="Inside the garden room, with bi-fold doors looking onto the lawn"
+          src={interiorThroughDoors}
+          alt="Looking through the bi-fold doors onto the garden, with playhouses on the lawn"
           rotate="rotate-1"
           aspect="aspect-[5/3]"
           class="col-span-2"
