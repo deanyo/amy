@@ -4,6 +4,11 @@ import Layout from '../layouts/Layout.astro';
 // Verified qualifications — confirmed from Amy's own social posts.
 const verified = [
   {
+    title: 'Registered childminder',
+    body: 'Registered on the Early Years Register and both parts of the Childcare Register through the Suffolk Childcare Agency, an Ofsted-registered childminder agency. Registration number SCA170534, registered 7 July 2026.',
+    cls: 'pill pill-sky',
+  },
+  {
     title: 'Qualified Teacher Status (QTS)',
     body: 'Trained and experienced primary school teacher, with classroom experience across early years and KS1.',
     cls: 'pill',
@@ -40,33 +45,25 @@ const verified = [
   },
 ];
 
-// In-progress / required-by-Ofsted-before-opening — honest about the timeline.
-const inProgress = [
-  {
-    title: 'Ofsted registration',
-    body: 'Currently in the pre-registration stage with Ofsted. Our URN will be displayed here as soon as it is issued.',
-  },
-];
 ---
 
 <Layout
   title="Qualifications · Blackfen Little Learners"
-  description="Amy King's qualifications and checks: Qualified Teacher Status, Early Years experience, paediatric first aid, safeguarding, enhanced DBS, public liability insurance, food hygiene, and Ofsted registration in progress."
+  description="Amy King's qualifications and checks: registered childminder (SCA170534), Qualified Teacher Status, Early Years experience, paediatric first aid, safeguarding, enhanced DBS, public liability insurance, and food hygiene."
 >
   <section class="py-16 md:py-20">
     <div class="container-wide">
       <div class="max-w-2xl">
         <p class="eyebrow mb-3">Qualifications & checks</p>
-        <h1 class="text-balance">Trained, and getting fully registered.</h1>
+        <h1 class="text-balance">Trained, checked, and fully registered.</h1>
         <p class="mt-6 text-ink-700/85">
-          Choosing childcare is built on trust, so here's an honest summary
-          of where things stand. Some qualifications are already in place,
-          and others form part of the Ofsted registration process before
-          we open.
+          Choosing childcare is built on trust, so here's a full summary of
+          the qualifications, checks, and registration behind Blackfen
+          Little Learners.
         </p>
       </div>
 
-      <h2 class="mt-14 text-2xl">Already in place</h2>
+      <h2 class="mt-14 text-2xl">In place</h2>
       <ul class="mt-6 grid md:grid-cols-2 gap-6">
         {verified.map((c) => (
           <li class="card">
@@ -76,27 +73,16 @@ const inProgress = [
         ))}
       </ul>
 
-      <h2 class="mt-14 text-2xl">In progress for opening</h2>
-      <p class="mt-2 text-ink-700/70 text-sm max-w-2xl">
-        The final piece before we can open — Ofsted registration is well
-        underway and our URN will be added here as soon as it is issued.
-      </p>
-      <ul class="mt-6 grid md:grid-cols-2 gap-6">
-        {inProgress.map((c) => (
-          <li class="card-tinted">
-            <span class="pill pill-sage mb-4">{c.title}</span>
-            <p class="text-ink-700/85">{c.body}</p>
-          </li>
-        ))}
-      </ul>
-
       <div class="mt-16 card-tinted">
-        <p class="eyebrow mb-3">Once registered</p>
+        <p class="eyebrow mb-3">Registered childminder</p>
         <p>
-          When Ofsted registration is confirmed, this page will be updated
-          with our URN, dates of relevant certificates, and a link to our
-          published Ofsted page. We're always happy to show certificates in
-          person at an introductory visit.
+          Blackfen Little Learners is registered through the Suffolk
+          Childcare Agency, a childminder agency registered and inspected by
+          Ofsted — registration number <strong>SCA170534</strong>, on the
+          Early Years Register and both the compulsory and voluntary parts
+          of the Childcare Register. We're always happy to show the
+          certificate and other paperwork in person at an introductory
+          visit.
         </p>
       </div>
     </div>

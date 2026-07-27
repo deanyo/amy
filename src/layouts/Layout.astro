@@ -16,7 +16,7 @@ interface Props {
 
 const SITE_NAME = 'Blackfen Little Learners';
 const SITE_DESCRIPTION =
-  'Teacher-led home childminding in Blackfen, serving families across Bexley and Sidcup in southeast London. A warm, nurturing setting led by a qualified primary school teacher with extensive Early Years experience. Opening September, subject to Ofsted registration.';
+  'Registered, teacher-led home childminding in Blackfen, serving families across Bexley and Sidcup in southeast London. A warm, nurturing setting led by a qualified primary school teacher with extensive Early Years experience. Opening September.';
 const DEFAULT_OG_IMAGE = '/og-image.jpg';
 
 const {
@@ -36,6 +36,11 @@ const childcareSchema = {
   name: SITE_NAME,
   description: SITE_DESCRIPTION,
   url: 'https://blackfenlittlelearners.co.uk',
+  identifier: {
+    '@type': 'PropertyValue',
+    name: 'Childminder agency registration number',
+    value: 'SCA170534',
+  },
   telephone: '+44 7933 177062',
   email: 'amy@blackfenlittlelearners.co.uk',
   image: imageURL,

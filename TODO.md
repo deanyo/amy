@@ -15,7 +15,7 @@ These need real info from Amy before they can be done.
   - Gallery grid on `/setting/` (6 tiles)
   - Portrait on `/about/`
   - Secondary peek-polaroid on `/` hero
-- [ ] **Ofsted URN** — once registration confirmed, add to `/qualifications/` Ofsted callout and footer
+- [ ] **Link to SCA/Ofsted listing** — Amy is registered via the Suffolk Childcare Agency (SCA170534, registered 7 July 2026); add a link to her published listing on scachildcare.co.uk / Ofsted once it appears
 - [ ] **Final hours / age range / availability** — confirm with Amy that home page cards still match
 - [ ] **Real bio copy** for `/about/` (current is reasonable placeholder, but Amy should sign off)
 - [ ] **Decide on rates / sessions** — currently no rates anywhere; should `/setting/` or a new section show indicative prices?
@@ -27,7 +27,7 @@ These need real info from Amy before they can be done.
 ## SEO follow-ups (you-side, no code)
 
 - [ ] **Bing Webmaster Tools** — free, ~2 min; offers a one-click "Import from Google Search Console" once GSC is set up
-- [ ] **Google Business Profile** — *the* big SEO win for local childcare ("childminder near me" → Maps). Best done once Ofsted-registered so the URN can verify her as a real provider
+- [ ] **Google Business Profile** — *the* big SEO win for local childcare ("childminder near me" → Maps). Now unblocked: Amy is registered (SCA170534)
 - [ ] **Validate share previews** — drop `https://blackfenlittlelearners.co.uk` into Facebook's [Sharing Debugger](https://developers.facebook.com/tools/debug/), the LinkedIn Post Inspector, and any other platforms whose cache you want primed
 - [ ] **Watch Search Console for issues** — over the next few weeks, check Coverage / Core Web Vitals / Mobile Usability tabs occasionally for surprises
 

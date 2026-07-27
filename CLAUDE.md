@@ -4,7 +4,9 @@ Static marketing site for **Blackfen Little Learners**, Amy King's teacher-led
 home childminding business in Blackfen (Bexley/Sidcup), southeast London.
 Owned by her brother (the user); Amy is non-technical.
 
-Status: pre-registration with Ofsted, aiming to open September.
+Status: registered childminder via the Suffolk Childcare Agency (an
+Ofsted-registered childminder agency) — registration number SCA170534,
+registered 7 July 2026. Opening September.
 
 ## Live deployment
 
@@ -125,7 +127,7 @@ npm run pages:dev                           # serves dist/ with the function bou
 - **Meals:** healthy meals & snacks provided
 - **Setting:** purpose-built outbuilding in family garden
 - **Lead:** qualified primary school teacher with extensive Early Years experience
-- **Status:** pre-registration with Ofsted, aiming to open September
+- **Status:** registered childminder — Suffolk Childcare Agency reg. SCA170534 (7 July 2026), opening September
 
 ## Out of scope (for now)
 
